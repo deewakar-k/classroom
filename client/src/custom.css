@@ -1,0 +1,32 @@
+.fc {
+  background-color: #fff;   color: #000; }
+
+.fc .fc-daygrid-day-number,
+.fc .fc-daygrid-day-top {
+  color: #000;}
+
+.fc .fc-daygrid-day {
+  border-color: #333; }
+
+/* Header Styles */
+.fc .fc-toolbar-title {
+  color: #000; }
+
+.fc .fc-button {
+  background-color: #222;   color: #fff; }
+
+.fc .fc-button:hover {
+  background-color: #444; }
+
+/* Event Styles */
+.fc .fc-event {
+  background-color: #444;   border: 1px solid #666;   color: #fff; }
+
+.fc .fc-event:hover {
+  background-color: #555;}
+
+.fc .fc-daygrid-day-today {
+  background-color: #333;}
+
+
+
