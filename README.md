@@ -52,6 +52,6 @@ cd client && npm run dev
 
 # Deployment
 
- -  [frontend](https://classroom-theta-umber.vercel.app/)
- - [api](https://classroom-pfcj.onrender.com)
+ -  [frontend](https://classroom-lac.vercel.app/)
+ - [api](https://classroom-b5a0.onrender.com)
 
