@@ -3,9 +3,7 @@ import Navbar from './navbar'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 import axios from 'axios';
 import { toast } from 'sonner';
-import { Button } from '../ui/button';
-
-const apiURL = process.env.BACKEND_URL
+import { BACKEND_URL } from 'config';
 
 function TeacherClassroom() {
 
@@ -17,7 +15,7 @@ function TeacherClassroom() {
 
     const fetchStudents = async () => {
       try {
-        const response = await axios.get(`${apiURL}/api/v1/class/teacher/students`, {
+        const response = await axios.get(`${BACKEND_URL}/api/v1/class/teacher/students`, {
           headers: {
             Authorization: localStorage.getItem('token')
           }
@@ -36,7 +34,7 @@ function TeacherClassroom() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${apiURL}/api/v1/teacher/students/${id}`, {
+      await axios.delete(`${BACKEND_URL}/api/v1/teacher/students/${id}`, {
         headers: {
           Authorization: localStorage.getItem('token')
         }

@@ -3,8 +3,7 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import axios from 'axios';
 import { toast } from 'sonner';
 import { Button } from '../ui/button';
-
-const apiURL = process.env.BACKEND_URL
+import { BACKEND_URL } from 'config';
 
 function ClassroomTable() {
 
@@ -14,7 +13,7 @@ function ClassroomTable() {
   useEffect(() => {
     const fetchTeacher = async () => {
       try {
-        const response = await axios.get(`${apiURL}/v1/admin/teachers`, {
+        const response = await axios.get(`${BACKEND_URL}/v1/admin/teachers`, {
           headers: {
             Authorization: localStorage.getItem('token')
           }
@@ -33,7 +32,7 @@ function ClassroomTable() {
   useEffect(() => {
     const fetchClassroom = async () => {
       try {
-        const response = await axios.get(`${apiURL}/api/v1/class/`);
+        const response = await axios.get(`${BACKEND_URL}/api/v1/class/`);
         console.log('Classroom data:', response.data);
         const classroomData = response.data.classes
         setClassrooms(classroomData);
@@ -56,7 +55,7 @@ function ClassroomTable() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${apiURL}/api/v1/class/${id}`, {
+      await axios.delete(`${BACKEND_URL}/api/v1/class/${id}`, {
         headers: {
           Authorization: localStorage.getItem('token')
         }

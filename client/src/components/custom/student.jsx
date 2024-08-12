@@ -22,8 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-
-const apiURL = process.env.BACKEND_URL
+import { BACKEND_URL } from 'config'
 
 function Student() {
 
@@ -39,7 +38,7 @@ function Student() {
   useEffect(() => {
     const fetchClasses = async () => {
       try {
-        const response = await axios.get(`${apiURL}/api/v1/class/`);
+        const response = await axios.get(`${BACKEND_URL}/api/v1/class/`);
         const classData = response.data.classes;
         setClasses(Array.isArray(classData) ? classData : []);
       } catch (error) {
@@ -59,7 +58,7 @@ function Student() {
     e.preventDefault();
 
     try {
-      await axios.post(`${apiURL}/api/v1/admin/signup/student`, {
+      await axios.post(`${BACKEND_URL}/api/v1/admin/signup/student`, {
         name,
         email,
         password,
@@ -86,7 +85,7 @@ function Student() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${apiURL}/api/v1/admin/students/${id}`, {
+      await axios.delete(`${BACKEND_URL}/api/v1/admin/students/${id}`, {
         headers: {
           Authorization: localStorage.getItem('token')
         }
@@ -109,7 +108,7 @@ function Student() {
   }
 
   useEffect(() => {
-    axios.get(`${apiURL}/api/v1/admin/students`)
+    axios.get(`${BACKEND_URL}/api/v1/admin/students`)
       .then(response => {
         setStudents(response.data.students)
       })

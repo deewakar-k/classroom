@@ -7,8 +7,7 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import Navbar from './navbar';
-
-const apiURL = process.env.BACKEND_URL
+import { BACKEND_URL } from 'config';
 
 function TeacherTimetable() {
   const [classrooms, setClassrooms] = useState([]);
@@ -20,10 +19,10 @@ function TeacherTimetable() {
     // Fetch classrooms and periods
     const fetchData = async () => {
       try {
-        const classroomResponse = await axios.get(`${apiURL}/api/v1/class/`);
+        const classroomResponse = await axios.get(`${BACKEND_URL}/api/v1/class/`);
         setClassrooms(classroomResponse.data.classes);
 
-        const periodResponse = await axios.get(`${apiURL}/api/v1/teacher/periods`);
+        const periodResponse = await axios.get(`${BACKEND_URL}/api/v1/teacher/periods`);
         setPeriods(periodResponse.data.periods);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -36,7 +35,7 @@ function TeacherTimetable() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${apiURL}/api/v1/teacher/timetable`, {
+      await axios.post(`${BACKEND_URL}/api/v1/teacher/timetable`, {
         classroomId,
         periods: periods.map(p => ({ ...p, startTime: new Date(p.startTime).toISOString(), endTime: new Date(p.endTime).toISOString() }))
       });

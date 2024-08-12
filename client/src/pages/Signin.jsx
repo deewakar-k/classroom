@@ -9,9 +9,7 @@ import { Label } from "@/components/ui/label"
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-
-const apiURL = process.env.BACKEND_URL
-
+import { BACKEND_URL } from 'config'
 
 function Signin() {
 
@@ -23,7 +21,7 @@ function Signin() {
     e.preventDefault();
 
 
-    const response = await axios.post(`${apiURL}/api/v1/admin/signin`, {
+    const response = await axios.post(`${BACKEND_URL}/api/v1/admin/signin`, {
       email,
       password
     }
@@ -37,7 +35,7 @@ function Signin() {
   const handleTeacherSignin = async (e) => {
     e.preventDefault();
 
-    const response = await axios.post(`${apiURL}/api/v1/teacher/signin`, {
+    const response = await axios.post(`${BACKEND_URL}/api/v1/teacher/signin`, {
       email,
       password
     })
@@ -50,7 +48,7 @@ function Signin() {
   const handleStudentSignin = async (e) => {
     e.preventDefault();
 
-    const response = await axios.post(`${apiURL}/api/v1/student/signin`, {
+    const response = await axios.post(`${BACKEND_URL}/api/v1/student/signin`, {
       email,
       password
     })

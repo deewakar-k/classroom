@@ -6,8 +6,8 @@ import { Button } from '../ui/button'
 import axios from 'axios'
 import { toast } from 'sonner'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
+import { BACKEND_URL } from 'config'
 
-const apiURL = process.env.BACKEND_URL
 
 function ClassroomDialog() {
   const [name, setName] = useState('');
@@ -32,7 +32,7 @@ function ClassroomDialog() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${apiURL}/api/v1/class/create`, {
+      const response = await axios.post(`${BACKEND_URL}/api/v1/class/create`, {
         name,
         schedule,
       }, {
@@ -59,7 +59,7 @@ function ClassroomDialog() {
   useEffect(() => {
     const fetchTeacher = async () => {
       try {
-        const response = await axios.get(`${apiURL}/api/v1/admin/teachers`, {
+        const response = await axios.get(`${BACKEND_URL}/api/v1/admin/teachers`, {
           headers: {
             Authorization: localStorage.getItem('token')
           }
@@ -76,7 +76,7 @@ function ClassroomDialog() {
   useEffect(() => {
     const fetchClassroom = async () => {
       try {
-        const response = await axios.get(`${apiURL}/api/v1/class/`);
+        const response = await axios.get(`${BACKEND_URL}/api/v1/class/`);
         console.log('Classroom data:', response.data);
         const classroomData = response.data.classes
         setClassrooms(classroomData);
@@ -91,7 +91,7 @@ function ClassroomDialog() {
     e.preventDefault();
 
     try {
-      const response = await axios.put(`${apiURL}/api/v1/class/assign/teacher`, {
+      const response = await axios.put(`${BACKEND_URL}/api/v1/class/assign/teacher`, {
         teacherId: selectedTeacher,
         classId: selectedClassroom
       }, {

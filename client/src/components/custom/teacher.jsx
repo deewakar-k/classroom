@@ -16,8 +16,7 @@ import { Label } from "@/components/ui/label"
 import axios from 'axios';
 import { toast } from 'sonner'
 import { DialogClose } from '@radix-ui/react-dialog'
-
-const apiURL = process.env.BACKEND_URL
+import { BACKEND_URL } from 'config'
 
 function Teacher() {
 
@@ -31,7 +30,7 @@ function Teacher() {
     e.preventDefault();
 
     try {
-      await axios.post(`${apiURL}/api/v1/admin/signup/teacher`, {
+      await axios.post(`${BACKEND_URL}/api/v1/admin/signup/teacher`, {
         name,
         email,
         password,
@@ -57,7 +56,7 @@ function Teacher() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${apiURL}/api/v1/admin/teachers/${id}`, {
+      await axios.delete(`${BACKEND_URL}/api/v1/admin/teachers/${id}`, {
         headers: {
           Authorization: localStorage.getItem('token')
         }
@@ -80,7 +79,7 @@ function Teacher() {
   }
 
   useEffect(() => {
-    axios.get(`${apiURL}/api/v1/admin/teachers`)
+    axios.get(`${BACKEND_URL}/api/v1/admin/teachers`)
       .then(response => {
         setTeachers(response.data.teachers)
       })

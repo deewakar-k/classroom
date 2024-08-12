@@ -5,8 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 
 import '../../custom.css'
-
-const apiURL = process.env.BACKEND_URL
+import { BACKEND_URL } from 'config';
 
 function Timetable() {
 
@@ -17,8 +16,8 @@ function Timetable() {
   useEffect(() => {
     const fetchPeriodsAndSubjects = async () => {
       try {
-        const periodsResponse = await axios.get(`${apiURL}/api/v1/teacher/periods`);
-        const subjectsResponse = await axios.get(`${apiURL}/api/v1/subject/`);
+        const periodsResponse = await axios.get(`${BACKEND_URL}/api/v1/teacher/periods`);
+        const subjectsResponse = await axios.get(`${BACKEND_URL}/api/v1/subject/`);
 
         const fetchedPeriods = periodsResponse.data.periods;
         const fetchedSubjects = subjectsResponse.data.subjects;

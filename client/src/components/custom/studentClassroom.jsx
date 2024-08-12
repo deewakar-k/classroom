@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './navbar'
 import axios from 'axios';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
-
-const apiURL = process.env.BACKEND_URL
+import { BACKEND_URL } from 'config';
 
 function StudentClassroom() {
   const [students, setStudents] = useState([]);
@@ -14,7 +13,7 @@ function StudentClassroom() {
 
     const fetchStudents = async () => {
       try {
-        const response = await axios.get(`${apiURL}/api/v1/class/teacher/students`, {
+        const response = await axios.get(`${BACKEND_URL}/api/v1/class/teacher/students`, {
           headers: {
             Authorization: localStorage.getItem('token')
           }
