@@ -3,8 +3,8 @@ import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, Tabl
 import axios from 'axios';
 import { toast } from 'sonner';
 import { Button } from '../ui/button';
-import { BACKEND_URL } from 'config';
 
+import { BACKEND_URL } from '../../../config.js';
 function ClassroomTable() {
 
   const [classrooms, setClassrooms] = useState([]);

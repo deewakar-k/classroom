@@ -3,7 +3,7 @@ import Navbar from './navbar'
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table'
 import axios from 'axios';
 import { toast } from 'sonner';
-import { BACKEND_URL } from 'config';
+import { BACKEND_URL } from '../../../config.js'
 
 function TeacherClassroom() {
 

@@ -5,7 +5,7 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 
 import '../../custom.css'
-import { BACKEND_URL } from 'config';
+import { BACKEND_URL } from '../../../config.js'
 
 function Timetable() {
 

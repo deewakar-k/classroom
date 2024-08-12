@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './navbar'
 import axios from 'axios';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '../ui/table';
-import { BACKEND_URL } from 'config';
+import { BACKEND_URL } from '../../../config.js'
 
 function StudentClassroom() {
   const [students, setStudents] = useState([]);

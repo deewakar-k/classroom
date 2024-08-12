@@ -22,7 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { BACKEND_URL } from 'config'
+import { BACKEND_URL } from '../../../config.js'
 
 function Student() {
 

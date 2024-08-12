@@ -16,7 +16,8 @@ import { Label } from "@/components/ui/label"
 import axios from 'axios';
 import { toast } from 'sonner'
 import { DialogClose } from '@radix-ui/react-dialog'
-import { BACKEND_URL } from 'config'
+
+import { BACKEND_URL } from '../../../config.js'
 
 function Teacher() {
 

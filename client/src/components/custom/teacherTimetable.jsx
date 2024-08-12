@@ -7,7 +7,7 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import Navbar from './navbar';
-import { BACKEND_URL } from 'config';
+import { BACKEND_URL } from '../../../config.js'
 
 function TeacherTimetable() {
   const [classrooms, setClassrooms] = useState([]);

@@ -6,7 +6,7 @@ import { Button } from '../ui/button'
 import axios from 'axios'
 import { toast } from 'sonner'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
-import { BACKEND_URL } from 'config'
+import { BACKEND_URL } from '../../../config.js'
 
 
 function ClassroomDialog() {
