@@ -6,12 +6,8 @@ const mainRouter = require('./routes/index.js')
 
 const app = express();
 
+app.use(cors());
 app.use(express.json())
-app.use(cors({
-  origin: 'https://classroom-theta-umber.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
 
 mongoose
   .connect(process.env.DATABASE_URL)
